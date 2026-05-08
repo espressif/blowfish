@@ -200,6 +200,8 @@ The alert sign (`+` or `-`) is optional to control whether the admonition is fol
 
 Set exactly one of `role` or `collection` per call.
 
+All card values are fetched at build time via Hugo's `resources.GetRemote`. Galaxy does not allow cross-origin requests, so the card is not refreshed in the browser — rebuild the site to update the values.
+
 **Example 1: Role**
 
 ```md
