@@ -12,6 +12,14 @@
   }
 
   const platforms = {
+    "ansible-role": {
+      "results.0.download_count": "downloads",
+      "results.0.summary_fields.versions.0.name": "version",
+    },
+    "ansible-collection": {
+      download_count: "downloads",
+      "highest_version.version": "version",
+    },
     github: {
       full_name: "full_name",
       description: "description",
@@ -49,11 +57,26 @@
     },
   };
 
+  const formatThousands = (value) =>
+    value == null ? value : Number(value).toLocaleString("en-US");
+
   const processors = {
     huggingface: {
       description: (value) => value?.replace(/Dataset Card for .+?\s+Dataset Summary\s+/, "").trim() || value,
     },
+    "ansible-role": {
+      "results.0.download_count": formatThousands,
+    },
+    "ansible-collection": {
+      download_count: formatThousands,
+    },
   };
+
+  const getNested = (obj, path) =>
+    path.split(".").reduce((acc, key) => {
+      if (acc == null) return undefined;
+      return Array.isArray(acc) ? acc[Number(key)] : acc[key];
+    }, obj);
 
   const platform = Object.keys(platforms).find((p) => repoId.startsWith(p)) || "github";
   const mapping = platforms[platform];
@@ -77,7 +100,7 @@
     Object.entries(mapping).forEach(([dataField, elementSuffix]) => {
       const element = document.getElementById(`${repoId}-${elementSuffix}`);
       if (element) {
-        let value = data[dataField];
+        let value = getNested(data, dataField);
         if (processors[platform]?.[dataField]) {
           value = processors[platform][dataField](value);
         }
