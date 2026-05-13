@@ -262,7 +262,7 @@ New article!
 
 ## Button
 
-`button` outputs a styled button component which can be used to highlight a primary action. It has three optional variables `href`, `target` and `rel` which can be used to specify the URL, target and relation of the link.
+`button` outputs a styled button component which can be used to highlight a primary action. It has four optional variables `pageRef`, `href`, `target` and `rel`. `pageRef` resolves an internal page reference using the current page context, producing a language- and trailing-slash-aware URL that is consistent with the theme's navigation menus. `href` accepts any URL or path. When both are set, `pageRef` takes precedence.
 
 **Example:**
 
@@ -274,6 +274,18 @@ Call to action
 
 {{< button href="#button" target="_self" >}}
 Call to action
+{{< /button >}}
+
+**Example using `pageRef`:**
+
+```md
+{{</* button pageRef="docs/getting-started" */>}}
+Get started
+{{</* /button */>}}
+```
+
+{{< button pageRef="docs/getting-started" >}}
+Get started
 {{< /button >}}
 
 <br/><br/><br/>
