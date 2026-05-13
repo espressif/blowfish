@@ -187,6 +187,39 @@ The alert sign (`+` or `-`) is optional to control whether the admonition is fol
 
 <br/><br/><br/>
 
+## Ansible Galaxy Card
+
+`ansible` renders a card for an [Ansible Galaxy](https://galaxy.ansible.com/) entry, fetched at build time. It accepts either a `role` or a `collection` parameter, both in `namespace.name` form.
+
+<!-- prettier-ignore-start -->
+| Parameter    | Description                                                                          |
+| ------------ | ------------------------------------------------------------------------------------ |
+| `role`       | [String] Galaxy role in the format `namespace.name`, e.g. `geerlingguy.docker`       |
+| `collection` | [String] Galaxy collection in the format `namespace.name`, e.g. `community.general`  |
+<!-- prettier-ignore-end -->
+
+Set exactly one of `role` or `collection` per call.
+
+All card values are fetched at build time via Hugo's `resources.GetRemote`. Galaxy does not allow cross-origin requests, so the card is not refreshed in the browser — rebuild the site to update the values.
+
+**Example 1: Role**
+
+```md
+{{</* ansible role="geerlingguy.docker" */>}}
+```
+
+{{< ansible role="geerlingguy.docker" >}}
+
+**Example 2: Collection**
+
+```md
+{{</* ansible collection="community.general" */>}}
+```
+
+{{< ansible collection="community.general" >}}
+
+<br/><br/><br/>
+
 ## Article
 
 `Article` will embed a single article into a markdown file. The `link` to the file should be the `.RelPermalink` of the file to be embedded. Note that the shortcode will not display anything if it's referencing it's parent. _Note: if you are running your website in a subfolder like Blowfish (i.e. /blowfish/) please include that path in the link._
