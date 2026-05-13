@@ -39,7 +39,7 @@
     "@tailwindcss/cli": "^4.3.0",
     "@tailwindcss/typography": "^0.5.19",
     "chart.js": "^4.5.1",
-    "fuse.js": "~7.2.0",
+    "fuse.js": "~7.3.0",
     "katex": "^0.16.45",
     "lite-youtube-embed": "^0.3.4",
     "medium-zoom": "^1.1.0",
@@ -82,8 +82,8 @@
       "to": "assets/lib/katex/fonts/"
     },
     {
-      "from": "node_modules/fuse.js/dist/fuse.min.js",
-      "to": "assets/lib/fuse/fuse.min.js"
+      "from": "node_modules/fuse.js/dist/fuse.min.cjs",
+      "to": "assets/lib/fuse/fuse.min.cjs"
     },
     {
       "from": "node_modules/typeit/dist/index.umd.js",
