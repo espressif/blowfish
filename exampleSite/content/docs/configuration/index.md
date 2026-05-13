@@ -186,6 +186,7 @@ Many of the article defaults here can be overridden on a per article basis by sp
 | `showViews` | _Not set_ | Whether or not articles and list views are displayed. This requires firebase integrations to be enabled, look below. |
 | `showLikes` | _Not set_ | Whether or not articles and list likes are displayed. This requires firebase integrations to be enabled, look below. |
 | `robots` | _Not set_ | String that indicates how robots should handle your site. If set, it will be output in the page head. Refer to [Google's docs](https://developers.google.com/search/docs/advanced/robots/robots_meta_tag#directives) for valid values. |
+| `seo.metaDescriptionOrder` | `["summary", "description", "site"]` | Controls the fallback order for the HTML meta description. Valid values are `summary`, `description`, and `site`. Use `["description", "summary", "site"]` if you want front matter `description` to take precedence over `summary`. |
 | `disableImageZoom` | `false` | Disables image zoom feature across all the images in the site. |
 | `disableImageOptimization` | `false` | Disables image resize and optimization features across all the images in the site, except images using markdown syntax (`![](image.jpg)`) |
 | `disableImageOptimizationMD` | `false` | Disables image resize and optimization features only for images using markdown syntax (`![](image.jpg)`). |
