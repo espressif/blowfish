@@ -1052,5 +1052,15 @@
     "tags": [
       "Personal site"
     ]
+  },
+  {
+    "title": "Story Seed Library",
+    "url": "https://storySeedLibrary.org/",
+    "source": "https://codeberg.org/alxd/storyseedlibrary",
+    "tags": [
+      "Gallery",
+      "Solarpunk",
+      "Community Project"
+    ]
   }
 ]
